@@ -1,0 +1,71 @@
+---------------------------------------
+Begin Slurm Prolog: Nov-10-2026 13:18:36
+Job ID:    6936921
+User ID:   sli817
+Account:   ece
+Job name:  vllm-hello
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+node: atl1-1-03-012-18-0.pace.gatech.edu   port: 26921   date: Tue Nov 10 13:18:41 EST 2026
+vllm: 0.32.0
+model snapshot: 0e9e39f249a16976918f6564b8830bc894c89659
+NVIDIA H100 80GB HBM3, 81559 MiB
+chat template: /home/hice1/sli817/scratch/vllm-templates/tool_chat_template_llama3.1_json.jinja
+server ready after about 560 seconds
+--- round 1: assistant message ---
+{
+  "role": "assistant",
+  "content": null,
+  "refusal": null,
+  "annotations": null,
+  "audio": null,
+  "function_call": null,
+  "tool_calls": [
+    {
+      "id": "chatcmpl-tool-8c004f43ddf505a6",
+      "type": "function",
+      "function": {
+        "name": "cancel_appointment",
+        "arguments": "{\"appointment_id\": \"your_appointment_id\"}"
+      }
+    }
+  ],
+  "reasoning": null
+}
+usage: {"prompt_tokens": 261, "total_tokens": 284, "completion_tokens": 23, "prompt_tokens_details": null, "completion_tokens_details": null}
+--- round 2: assistant message ---
+{
+  "role": "assistant",
+  "content": null,
+  "refusal": null,
+  "annotations": null,
+  "audio": null,
+  "function_call": null,
+  "tool_calls": [
+    {
+      "id": "chatcmpl-tool-b2c40c9988bbae25",
+      "type": "function",
+      "function": {
+        "name": "list_appointments",
+        "arguments": "{}"
+      }
+    }
+  ],
+  "reasoning": null
+}
+usage: {"prompt_tokens": 378, "total_tokens": 399, "completion_tokens": 21, "prompt_tokens_details": null, "completion_tokens_details": null}
+RESULT: tool calling works
+finished with status 0 at Tue Nov 10 13:30:56 EST 2026
+---------------------------------------
+Begin Slurm Epilog: Nov-10-2026 13:30:57
+Job ID:        6936921
+User ID:       sli817
+Account:       ece
+Job name:      vllm-hello
+Resources:     cpu=4,gres/gpu:h100=1,mem=32G,node=1
+Rsrc Used:     cput=00:49:24,vmem=0,walltime=00:12:21,mem=9886400K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-012-18-0
+---------------------------------------
