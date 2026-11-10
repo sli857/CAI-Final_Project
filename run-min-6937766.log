@@ -1,0 +1,53 @@
+---------------------------------------
+Begin Slurm Prolog: Nov-10-2026 14:07:20
+Job ID:    6937766
+User ID:   sli817
+Account:   ece
+Job name:  convai-min
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+node: atl1-1-03-013-3-0.pace.gatech.edu   port: 27766   date: Tue Nov 10 14:07:24 EST 2026
+code commit: 681364341460e964fa07375a7ba47503ea1709ce
+vllm: 0.32.0
+model snapshot: 0e9e39f249a16976918f6564b8830bc894c89659
+model generation_config.json: {  "bos_token_id": 128000,  "do_sample": true,  "eos_token_id": [    128001,    128008,    128009  ],  "temperature": 0.6,  "top_p": 0.9,  "transformers_version": "4.42.3"}
+NVIDIA H100 80GB HBM3, 81559 MiB
+server ready after about 540 seconds
+sampling settings reported by vLLM:
+(APIServer pid=2245994) WARNING 11-10 14:19:39 [model.py:1893] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 0.6, 'top_p': 0.9}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+20 episodes planned, 0 already done, output: results/min-llama3.1-8b.jsonl
+[1] min-001 base     proactive  rep0  success=True end=user_done turns=7
+[2] min-001 base     ondemand   rep0  success=False end=user_gave_up turns=9
+[3] min-001 clarify  proactive  rep0  success=False end=user_done turns=6
+[4] min-001 clarify  ondemand   rep0  success=False end=user_done turns=3
+[5] min-001 base     proactive  rep1  success=True end=user_done turns=9
+[6] min-001 base     ondemand   rep1  success=False end=user_gave_up turns=8
+[7] min-001 clarify  proactive  rep1  success=True end=user_done turns=5
+[8] min-001 clarify  ondemand   rep1  success=False end=user_gave_up turns=9
+[9] min-001 base     proactive  rep2  success=False end=user_gave_up turns=10
+[10] min-001 base     ondemand   rep2  success=False end=user_gave_up turns=6
+[11] min-001 clarify  proactive  rep2  success=False end=user_done turns=6
+[12] min-001 clarify  ondemand   rep2  success=False end=user_done turns=3
+[13] min-001 base     proactive  rep3  success=True end=user_done turns=7
+[14] min-001 base     ondemand   rep3  success=False end=user_gave_up turns=9
+[15] min-001 clarify  proactive  rep3  success=False end=user_done turns=7
+[16] min-001 clarify  ondemand   rep3  success=False end=user_gave_up turns=9
+[17] min-001 base     proactive  rep4  success=True end=user_done turns=7
+[18] min-001 base     ondemand   rep4  success=False end=user_done turns=7
+[19] min-001 clarify  proactive  rep4  success=True end=user_done turns=9
+[20] min-001 clarify  ondemand   rep4  success=False end=user_gave_up turns=10
+finished: ran 20 episodes
+finished with status 0 at Tue Nov 10 14:20:19 EST 2026
+---------------------------------------
+Begin Slurm Epilog: Nov-10-2026 14:20:21
+Job ID:        6937766
+User ID:       sli817
+Account:       ece
+Job name:      convai-min
+Resources:     cpu=4,gres/gpu:h100=1,mem=32G,node=1
+Rsrc Used:     cput=00:52:04,vmem=0,walltime=00:13:01,mem=9898576K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-013-3-0
+---------------------------------------
