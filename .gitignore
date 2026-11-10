@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+# vLLM server logs are large and only useful for debugging on the cluster
+*-vllm.log
