@@ -14,8 +14,10 @@ real model has been run yet, so there are no results in this repository.
 | `sandbox.py` | Appointment table, three tools, and the goal check |
 | `user_sim.py` | Scripted user with the proactive and on-demand rules |
 | `episode.py` | One conversation between an agent and the scripted user |
+| `agent.py` | The two system prompts (verbatim), tool definitions, and the model call |
+| `run.py` | Runs all conditions and appends one JSON line per episode |
 | `tasks.jsonl` | Tasks, one JSON object per line |
-| `test_sandbox.py`, `test_episode.py` | Checks that run without any model |
+| `test_sandbox.py`, `test_episode.py`, `test_run.py` | Checks that run without any model |
 | `pace/` | Slurm scripts for PACE-ICE |
 
 ## Setup
@@ -26,9 +28,10 @@ nothing to install for local work.
 ```bash
 python3 test_sandbox.py
 python3 test_episode.py
+python3 test_run.py
 ```
 
-Both scripts print a final line that says all checks passed.
+Each script prints a final line that says all checks passed.
 
 ## Running on PACE-ICE
 
@@ -38,6 +41,14 @@ check, not an experiment.
 
 ```bash
 sbatch pace/hello_vllm.sbatch
+```
+
+`pace/run_min.sbatch` runs the minimal experiment: one scenario, two agent
+strategies, two user rules, five repetitions (20 episodes). Results are
+appended to `results/min-llama3.1-8b.jsonl`.
+
+```bash
+sbatch pace/run_min.sbatch
 ```
 
 ## AI use
